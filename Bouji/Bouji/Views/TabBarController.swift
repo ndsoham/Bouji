@@ -37,8 +37,8 @@ class TabBarController: UITabBarController {
         roomsVC.didMove(toParent: self)
         // add view controllers
         self.viewControllers = [formalVC, casualVC, textBkVC, roomsVC]
-//        self.selectedIndex = 0
         self.view.backgroundColor = .black
     }
+
 }
 

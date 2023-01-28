@@ -22,6 +22,7 @@
 		0F7FE045298588DF00C7FCF2 /* RentalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE044298588DF00C7FCF2 /* RentalItem.swift */; };
 		0F7FE04729858E7300C7FCF2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE04629858E7300C7FCF2 /* ResultsViewController.swift */; };
 		0F7FE04B29859D1100C7FCF2 /* TabBarController+Contraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE04A29859D1100C7FCF2 /* TabBarController+Contraints.swift */; };
+		0F7FE04D2985ACC300C7FCF2 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE04C2985ACC300C7FCF2 /* ItemCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0F7FE044298588DF00C7FCF2 /* RentalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalItem.swift; sourceTree = "<group>"; };
 		0F7FE04629858E7300C7FCF2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0F7FE04A29859D1100C7FCF2 /* TabBarController+Contraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController+Contraints.swift"; sourceTree = "<group>"; };
+		0F7FE04C2985ACC300C7FCF2 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				0F7FE04A29859D1100C7FCF2 /* TabBarController+Contraints.swift */,
 				0F7FE04829858FF200C7FCF2 /* Pages */,
 				0F7FE04929858FFE00C7FCF2 /* Details */,
+				0F7FE04E2985ACC700C7FCF2 /* CollectionViewCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,6 +127,14 @@
 				0F7FE04629858E7300C7FCF2 /* ResultsViewController.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		0F7FE04E2985ACC700C7FCF2 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				0F7FE04C2985ACC300C7FCF2 /* ItemCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				0F7FE03E2985847400C7FCF2 /* TextbooksViewController.swift in Sources */,
 				0F7FE045298588DF00C7FCF2 /* RentalItem.swift in Sources */,
 				0F7FE02929857E1800C7FCF2 /* Bouji.xcdatamodeld in Sources */,
+				0F7FE04D2985ACC300C7FCF2 /* ItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
