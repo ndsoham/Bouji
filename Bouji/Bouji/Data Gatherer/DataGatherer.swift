@@ -43,10 +43,10 @@ extension DataGatherer {
         for product in ProductData {
             var newProduct: Product
             if let imageData = try? Data(contentsOf: product.product.main_image), let image = UIImage(data: imageData)  {
-                let description = product.product.description?.replacingOccurrences(of: "<li>", with: "").replacingOccurrences(of: "<\\li>", with: "") ?? "Description"
+                let description = product.product.description?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "Description"
                 newProduct = Product(name: product.product.title, price: product.offers.primary.price, description: description, image: image)
             } else {
-                let description = product.product.description?.replacingOccurrences(of: "<li>", with: "").replacingOccurrences(of: "<\\li>", with: "") ?? "Description"
+                let description = product.product.description?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "Description"
                 newProduct = Product(name: product.product.title, price: product.offers.primary.price, description: description, image: UIImage(systemName: "questionmark")!)
                 newProduct = Product(name: product.product.title, price: product.offers.primary.price, description: "", image: UIImage(systemName: "questionmark")!)
                 

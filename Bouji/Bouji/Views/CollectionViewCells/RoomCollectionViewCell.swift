@@ -39,14 +39,14 @@ class RoomCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         safeMargins = self.contentView.safeAreaLayoutGuide
         if let safeMargins, let image, let title, let numBeds, let price{
-            // configure the image
-            setupImageView(image: image, safeMargins: safeMargins)
-            // configure the title
-            setupTitleLabel(name: title, safeMargins: safeMargins)
             // configure the beds
             setUpNumBedsLabel(numBeds: numBeds, safeMargins: safeMargins)
             // configure price
             setupPriceLabel(price: price, safeMargins: safeMargins)
+            // configure the title
+            setupTitleLabel(name: title, safeMargins: safeMargins)
+            // configure the image
+            setupImageView(image: image, safeMargins: safeMargins)
         }
     }
     
@@ -63,10 +63,11 @@ extension RoomCollectionViewCell {
         // add to subview
         self.contentView.addSubview(imageView)
         // add constraints
-        imageView.topAnchor.constraint(equalTo: safeMargins.topAnchor, constant: topInset).isActive = true
         imageView.leadingAnchor.constraint(equalTo: safeMargins.leadingAnchor, constant: leftInset).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -topInset).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
+        imageView.topAnchor.constraint(equalTo: safeMargins.topAnchor, constant: topInset).isActive = true
         imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -topInset).isActive = true
+
     }
     //MARK: - title
     func setupTitleLabel(name: String, safeMargins: UILayoutGuide) {
@@ -78,12 +79,14 @@ extension RoomCollectionViewCell {
         ]
         titleLabel.attributedText = NSAttributedString(string: name, attributes: titleAttributes)
         titleLabel.lineBreakMode = .byTruncatingTail
+        titleLabel.numberOfLines = 0
         // add to subview
         self.contentView.addSubview(titleLabel)
         // add constraints
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: topInset).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: safeMargins.leadingAnchor, constant: leftInset).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: numBedsLabel.topAnchor).isActive = true
+        
     }
     //MARK: - num beds
     func setUpNumBedsLabel(numBeds: String, safeMargins: UILayoutGuide) {
@@ -97,12 +100,10 @@ extension RoomCollectionViewCell {
         // add to subview
         self.contentView.addSubview(numBedsLabel)
         // add constraints
-        numBedsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: topInset).isActive = true
-        numBedsLabel.bottomAnchor.constraint(equalTo: safeMargins.bottomAnchor).isActive = true
+        numBedsLabel.bottomAnchor.constraint(equalTo: safeMargins.bottomAnchor, constant: -topInset).isActive = true
         numBedsLabel.leadingAnchor.constraint(equalTo: safeMargins.leadingAnchor, constant: leftInset).isActive = true
         numBedsLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
-        
-    }
+       }
     //MARK: - price
     func setupPriceLabel(price: String, safeMargins: UILayoutGuide) {
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -115,9 +116,9 @@ extension RoomCollectionViewCell {
         // add to subview
         self.contentView.addSubview(priceLabel)
         // add constraints
-        priceLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -topInset).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: topInset).isActive = true
+        priceLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
         priceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -topInset).isActive = true
-    }
+        priceLabel.bottomAnchor.constraint(equalTo: safeMargins.bottomAnchor, constant: -topInset).isActive = true
+        
+       }
 }

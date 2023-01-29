@@ -30,7 +30,7 @@ class FormalWearViewController: UIViewController {
     private var tiesActivityIndicator = UIActivityIndicatorView()
     private var dressesActivityIndicator = UIActivityIndicatorView()
     private let sepLabelAttributes: [NSAttributedString.Key:Any] = [
-        .font:UIFont.preferredFont(forTextStyle: .largeTitle),
+        .font:UIFont.boldSystemFont(ofSize: 24),
         .foregroundColor:UIColor.gray
     ]
     private var layout: UICollectionViewFlowLayout {
@@ -38,13 +38,21 @@ class FormalWearViewController: UIViewController {
         layout.scrollDirection = .horizontal
         return layout
     }
-    //MARK: - life cycle methods
+    private var imagePicker: UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.mediaTypes = ["public.image"]
+        picker.sourceType = .photoLibrary
+        return picker
+        
+    }    //MARK: - life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSelf()
         layoutSubviews()
         setupNavigationBar()
-       // startDataTask()
+        startDataTask()
     }
     //MARK: - data task
     func startDataTask() {
@@ -90,6 +98,9 @@ class FormalWearViewController: UIViewController {
             navigationController.navigationBar.sizeToFit()
             self.navigationItem.largeTitleDisplayMode = .always
             self.navigationItem.title = "Formals"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: UIAction(handler: { action in
+                self.present(self.imagePicker, animated: true)
+            }))
         }
     }
     //MARK: - configure self
@@ -144,7 +155,7 @@ extension FormalWearViewController: UICollectionViewDataSource {
         if collectionView == suitsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
             if cell.price == nil, cell.itemDescription == nil, cell.name == nil, cell.image == nil{
-                cell.price = "$\(round(suits[indexPath.row].price/3 * 100) / 100)/day"
+                cell.price = "$\(String(format: "%.2f", suits[indexPath.row].price))/day"
                 cell.itemDescription = suits[indexPath.row].description
                 cell.name = suits[indexPath.row].name
                 cell.image = suits[indexPath.row].image
@@ -154,7 +165,7 @@ extension FormalWearViewController: UICollectionViewDataSource {
         else if collectionView == shoesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
             if cell.price == nil, cell.itemDescription == nil, cell.name == nil, cell.image == nil {
-                cell.price = "$\(round(shoes[indexPath.row].price/3 * 100) / 100)/day"
+                cell.price = "$\(String(format: "%.2f", shoes[indexPath.row].price))/day"
                 cell.itemDescription = shoes[indexPath.row].description
                 cell.name = shoes[indexPath.row].name
                 cell.image = shoes[indexPath.row].image
@@ -164,7 +175,7 @@ extension FormalWearViewController: UICollectionViewDataSource {
         else if collectionView == tiesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
             if cell.price == nil, cell.itemDescription == nil, cell.name == nil, cell.image == nil {
-                cell.price = "$\(round(ties[indexPath.row].price/3 * 100) / 100)/day"
+                cell.price = "$\(String(format: "%.2f", ties[indexPath.row].price))/day"
                 cell.itemDescription = ties[indexPath.row].description
                 cell.name = ties[indexPath.row].name
                 cell.image = ties[indexPath.row].image
@@ -174,7 +185,7 @@ extension FormalWearViewController: UICollectionViewDataSource {
         else if collectionView == dressesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
             if cell.price == nil, cell.itemDescription == nil, cell.name == nil, cell.image == nil {
-                cell.price = "$\(round(dresses[indexPath.row].price/3 * 100) / 100)/day"
+                cell.price = "$\(String(format: "%.2f", dresses[indexPath.row].price))/day"
                 cell.itemDescription = dresses[indexPath.row].description
                 cell.name = dresses[indexPath.row].name
                 cell.image = dresses[indexPath.row].image
@@ -192,8 +203,54 @@ extension FormalWearViewController: UICollectionViewDataSource {
 }
 //MARK: - delegate
 extension FormalWearViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == suitsCollectionView {
+            let detailVc = DetailViewController()
+            detailVc.image = suits[indexPath.row].image
+            detailVc.itemTitle = suits[indexPath.row].name
+            detailVc.itemDescription = suits [indexPath.row].description
+            detailVc.price = "$\(String(format: "%.2f", suits[indexPath.row].price))/day"
+            detailVc.sellerIcon = UIImage(named: "Sam Walton")
+            detailVc.sellerName = "Sam Walton"
+            detailVc.sellerNumber = "(800) 925-6278"
+            navigationController?.pushViewController(detailVc, animated: true)
+        }
+        else if collectionView == shoesCollectionView {
+            let detailVc = DetailViewController()
+            detailVc.image = shoes[indexPath.row].image
+            detailVc.itemTitle = shoes[indexPath.row].name
+            detailVc.itemDescription = shoes [indexPath.row].description
+            detailVc.price = "$\(String(format: "%.2f", shoes[indexPath.row].price))/day"
+            detailVc.sellerIcon = UIImage(named: "Sam Walton")
+            detailVc.sellerName = "Sam Walton"
+            detailVc.sellerNumber = "(800) 925-6278"
+            navigationController?.pushViewController(detailVc, animated: true)
+        }
+        else if collectionView == tiesCollectionView {
+            let detailVc = DetailViewController()
+            detailVc.image = ties[indexPath.row].image
+            detailVc.itemTitle = ties[indexPath.row].name
+            detailVc.itemDescription = ties [indexPath.row].description
+            detailVc.price = "$\(String(format: "%.2f", ties[indexPath.row].price))/day"
+            detailVc.sellerIcon = UIImage(named: "Sam Walton")
+            detailVc.sellerName = "Sam Walton"
+            detailVc.sellerNumber = "(800) 925-6278"
+            navigationController?.pushViewController(detailVc, animated: true)
+        }
+        else if collectionView == dressesCollectionView {
+            let detailVc = DetailViewController()
+            detailVc.image = dresses[indexPath.row].image
+            detailVc.itemTitle = dresses[indexPath.row].name
+            detailVc.itemDescription = dresses [indexPath.row].description
+            detailVc.price = "$\(String(format: "%.2f", dresses[indexPath.row].price))/day"
+            detailVc.sellerIcon = UIImage(named: "Sam Walton")
+            detailVc.sellerName = "Sam Walton"
+            detailVc.sellerNumber = "(800) 925-6278"
+            navigationController?.pushViewController(detailVc, animated: true)
+        }
+    }
 }
+
 //MARK: - flow delegate
 extension FormalWearViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -206,6 +263,7 @@ extension FormalWearViewController {
     func setupScrollView(safeMargins: UILayoutGuide){
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isScrollEnabled = true
+        scrollView.isUserInteractionEnabled = true
         scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: (self.view.frame.height/3.0) * CGFloat(numberOfSections) + (44) * CGFloat(numberOfSections))
         // add to subview
@@ -225,7 +283,6 @@ extension FormalWearViewController {
             suitsLabel.attributedText = NSAttributedString(string: "Suits",attributes: sepLabelAttributes)
             scrollView.addSubview(suitsLabel)
             // add constraints
-            suitsLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
             suitsLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
             suitsLabel.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
             suitsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 15).isActive = true
@@ -233,10 +290,11 @@ extension FormalWearViewController {
     }
     //MARK: - suits collection view
     func setupSuitsCollectionView() {
-        
         suitsCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height/3.0), collectionViewLayout: layout)
         // configure
         if let suitsCollectionView {
+            suitsCollectionView.allowsSelection = true
+            suitsCollectionView.allowsMultipleSelection = false
             suitsActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
             suitsActivityIndicator.startAnimating()
             // add an activity indicator
@@ -364,6 +422,8 @@ extension FormalWearViewController {
         dressesCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height/3.0), collectionViewLayout: layout)
         // configure
         if let dressesCollectionView {
+            dressesCollectionView.allowsSelection = true
+            dressesCollectionView.allowsMultipleSelection = false
             dressesActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
             dressesActivityIndicator.startAnimating()
             // add an activity indicator
@@ -388,4 +448,31 @@ extension FormalWearViewController {
             }
         }
     }
+}
+//MARK: - deal with picker delegate
+extension FormalWearViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        let postViewController = PostViewController()
+        if let image = info[.editedImage] as? UIImage {
+            postViewController.image = image
+            postViewController.delegate = self
+            navigationController?.pushViewController(postViewController, animated: true)
+        }
+    }
+}
+//MARK: - post delegate
+extension FormalWearViewController: PostDelegate {
+    func didFillOutPost(image: UIImage, itemTitle: String, price: String, itemDescription: String) {
+        let newItem = Product(name: itemTitle, price: Double(price) ?? 0, description: itemDescription, image: image)
+        self.suits.append(newItem)
+        DispatchQueue.main.async {
+            self.suitsCollectionView?.reloadData()
+        }
+    }
+    
+    
 }

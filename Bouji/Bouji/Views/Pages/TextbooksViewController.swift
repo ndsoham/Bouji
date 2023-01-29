@@ -25,7 +25,7 @@ class TextbooksViewController: UIViewController {
         configureSelf()
         layoutSubviews()
         setupNavigationBar()
-        //setupDataTask()
+        setupDataTask()
     }
     //MARK: - data task
     func setupDataTask() {
@@ -45,6 +45,9 @@ class TextbooksViewController: UIViewController {
             navigationController.navigationBar.sizeToFit()
             self.navigationItem.largeTitleDisplayMode = .always
             self.navigationItem.title = "Textbooks"
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: UIAction(handler: { action in
+                print("im here")
+            }))
         }
     }
     //MARK: - configure self
@@ -108,5 +111,15 @@ extension TextbooksViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.width/3, height: self.view.frame.height/4)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVc = DetailViewController()
+        detailVc.image = textBooks[indexPath.row].image
+        detailVc.itemTitle = textBooks[indexPath.row].name
+        detailVc.itemDescription = textBooks [indexPath.row].description
+        detailVc.price = "$\(round(textBooks[indexPath.row].price/3 * 100)/100)/sem"
+        detailVc.sellerIcon = UIImage(named: "James Daunt")
+        detailVc.sellerName = "James Daunt"
+        detailVc.sellerNumber = "(800) 843-2665"
+        navigationController?.pushViewController(detailVc, animated: true)
+    }
 }

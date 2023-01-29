@@ -40,7 +40,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         safeMargins = self.contentView.safeAreaLayoutGuide
         if let safeMargins, let name, let price, let image, let itemDescription {
-            
             // configure the description
             setupDescriptionLabel(itemDescription: itemDescription, safeMargins: safeMargins)
             // configure title
@@ -69,7 +68,6 @@ extension  ItemCollectionViewCell {
         // add constraints
         titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: safeMargins.leadingAnchor, constant: leftInset).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
     }
     func setupDescriptionLabel(itemDescription: String, safeMargins: UILayoutGuide) {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -78,15 +76,16 @@ extension  ItemCollectionViewCell {
             .font: UIFont.boldSystemFont(ofSize: 12),
             .foregroundColor: UIColor.white.withAlphaComponent(0.75)
         ]
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byTruncatingTail
         descriptionLabel.attributedText = NSAttributedString(string: itemDescription, attributes: descriptionAttributes)
         // add to subview
         self.contentView.addSubview(descriptionLabel)
         // add constraints
         descriptionLabel.bottomAnchor.constraint(equalTo: safeMargins.bottomAnchor, constant: -topInset).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: safeMargins.leadingAnchor, constant: leftInset).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -topInset).isActive = true
-        descriptionLabel.numberOfLines = 0
-//        descriptionLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: self.contentView.frame.height*0.2).isActive = true
 
     }
     func setupImageView(image: UIImage, safeMargins: UILayoutGuide) {
@@ -100,7 +99,7 @@ extension  ItemCollectionViewCell {
         // add constraints
         imageView.topAnchor.constraint(equalTo: safeMargins.topAnchor, constant: topInset).isActive = true
         imageView.leadingAnchor.constraint(equalTo: safeMargins.leadingAnchor, constant: leftInset).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -topInset).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
         imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -topInset).isActive = true
     }
     func setupPriceLabel(price: String, safeMargins: UILayoutGuide) {
@@ -113,9 +112,9 @@ extension  ItemCollectionViewCell {
         // add to subview
         self.contentView.addSubview(priceLabel)
         // add constraints
-        priceLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -topInset).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: topInset).isActive = true
+        priceLabel.trailingAnchor.constraint(equalTo: safeMargins.trailingAnchor, constant: -leftInset).isActive = true
         priceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -topInset).isActive = true
+        priceLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -leftInset).isActive = true
     }
 }

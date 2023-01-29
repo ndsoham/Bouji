@@ -18,7 +18,7 @@
 		0F7FE0402985847D00C7FCF2 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE03F2985847D00C7FCF2 /* RoomsViewController.swift */; };
 		0F7FE0422985874200C7FCF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE0412985874200C7FCF2 /* DetailViewController.swift */; };
 		0F7FE045298588DF00C7FCF2 /* RentalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE044298588DF00C7FCF2 /* RentalItem.swift */; };
-		0F7FE04729858E7300C7FCF2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE04629858E7300C7FCF2 /* ResultsViewController.swift */; };
+		0F7FE04729858E7300C7FCF2 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE04629858E7300C7FCF2 /* PostViewController.swift */; };
 		0F7FE04D2985ACC300C7FCF2 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE04C2985ACC300C7FCF2 /* ItemCollectionViewCell.swift */; };
 		0F7FE0552985ED3700C7FCF2 /* DataGatherer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE0542985ED3700C7FCF2 /* DataGatherer.swift */; };
 		0F7FE0592985EF6B00C7FCF2 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE0582985EF6B00C7FCF2 /* SearchResult.swift */; };
@@ -26,9 +26,12 @@
 		0F7FE05D2985F55B00C7FCF2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE05C2985F55B00C7FCF2 /* Result.swift */; };
 		0F7FE05F2986257200C7FCF2 /* TextBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE05E2986257200C7FCF2 /* TextBookCollectionViewCell.swift */; };
 		0F7FE06129863D8100C7FCF2 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE06029863D8100C7FCF2 /* RoomCollectionViewCell.swift */; };
+		0F7FE0632986489800C7FCF2 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FE0622986489800C7FCF2 /* Room.swift */; };
+		F3787E28D340937CA5B642E7 /* Pods_Bouji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C72021B66A4B91B62EE40C0 /* Pods_Bouji.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C72021B66A4B91B62EE40C0 /* Pods_Bouji.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bouji.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7FE01B29857E1800C7FCF2 /* Bouji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bouji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7FE01E29857E1800C7FCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F7FE02029857E1800C7FCF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +45,7 @@
 		0F7FE03F2985847D00C7FCF2 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		0F7FE0412985874200C7FCF2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0F7FE044298588DF00C7FCF2 /* RentalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalItem.swift; sourceTree = "<group>"; };
-		0F7FE04629858E7300C7FCF2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		0F7FE04629858E7300C7FCF2 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		0F7FE04C2985ACC300C7FCF2 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F7FE0542985ED3700C7FCF2 /* DataGatherer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatherer.swift; sourceTree = "<group>"; };
 		0F7FE0582985EF6B00C7FCF2 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 		0F7FE05C2985F55B00C7FCF2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		0F7FE05E2986257200C7FCF2 /* TextBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBookCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F7FE06029863D8100C7FCF2 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F7FE0622986489800C7FCF2 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		8EFB2FAB8438564B5B309FED /* Pods-Bouji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bouji.release.xcconfig"; path = "Target Support Files/Pods-Bouji/Pods-Bouji.release.xcconfig"; sourceTree = "<group>"; };
+		E922C63F1A89D307ABFB33F2 /* Pods-Bouji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bouji.debug.xcconfig"; path = "Target Support Files/Pods-Bouji/Pods-Bouji.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3787E28D340937CA5B642E7 /* Pods_Bouji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +75,8 @@
 			children = (
 				0F7FE01D29857E1800C7FCF2 /* Bouji */,
 				0F7FE01C29857E1800C7FCF2 /* Products */,
+				3E0D711D39CD586FE772E6B1 /* Pods */,
+				16552D9E72AB6540C4BD77F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				0F7FE0412985874200C7FCF2 /* DetailViewController.swift */,
-				0F7FE04629858E7300C7FCF2 /* ResultsViewController.swift */,
+				0F7FE04629858E7300C7FCF2 /* PostViewController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -166,8 +175,27 @@
 			isa = PBXGroup;
 			children = (
 				0F7FE05A2985F0AE00C7FCF2 /* Product.swift */,
+				0F7FE0622986489800C7FCF2 /* Room.swift */,
 			);
 			path = Structure;
+			sourceTree = "<group>";
+		};
+		16552D9E72AB6540C4BD77F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C72021B66A4B91B62EE40C0 /* Pods_Bouji.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E0D711D39CD586FE772E6B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E922C63F1A89D307ABFB33F2 /* Pods-Bouji.debug.xcconfig */,
+				8EFB2FAB8438564B5B309FED /* Pods-Bouji.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F7FE03229857E1900C7FCF2 /* Build configuration list for PBXNativeTarget "Bouji" */;
 			buildPhases = (
+				DE96C818B640D4215BE7CFA0 /* [CP] Check Pods Manifest.lock */,
 				0F7FE01729857E1800C7FCF2 /* Sources */,
 				0F7FE01829857E1800C7FCF2 /* Frameworks */,
 				0F7FE01929857E1800C7FCF2 /* Resources */,
+				1CB775BABD741BD48BE9D740 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,14 +266,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CB775BABD741BD48BE9D740 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bouji/Pods-Bouji-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bouji/Pods-Bouji-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bouji/Pods-Bouji-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE96C818B640D4215BE7CFA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bouji-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0F7FE01729857E1800C7FCF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7FE04729858E7300C7FCF2 /* ResultsViewController.swift in Sources */,
+				0F7FE04729858E7300C7FCF2 /* PostViewController.swift in Sources */,
 				0F7FE0422985874200C7FCF2 /* DetailViewController.swift in Sources */,
 				0F7FE05B2985F0AE00C7FCF2 /* Product.swift in Sources */,
+				0F7FE0632986489800C7FCF2 /* Room.swift in Sources */,
 				0F7FE01F29857E1800C7FCF2 /* AppDelegate.swift in Sources */,
 				0F7FE05F2986257200C7FCF2 /* TextBookCollectionViewCell.swift in Sources */,
 				0F7FE0402985847D00C7FCF2 /* RoomsViewController.swift in Sources */,
@@ -398,6 +471,7 @@
 		};
 		0F7FE03329857E1900C7FCF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E922C63F1A89D307ABFB33F2 /* Pods-Bouji.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -426,6 +500,7 @@
 		};
 		0F7FE03429857E1900C7FCF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EFB2FAB8438564B5B309FED /* Pods-Bouji.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
